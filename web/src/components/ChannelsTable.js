@@ -187,7 +187,7 @@ const ChannelsTable = () => {
       return <Label basic color='grey'>未测试</Label>;
     } else if (responseTime <= 1000) {
       return <Label basic color='green'>{time}</Label>;
-    } else if (responseTime <= 3000) {
+    } else if (responseTime <= 8092) {
       return <Label basic color='olive'>{time}</Label>;
     } else if (responseTime <= 5000) {
       return <Label basic color='yellow'>{time}</Label>;

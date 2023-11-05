@@ -8,13 +8,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
 	"one-api/common"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 // https://cloud.tencent.com/document/product/1729/97732
@@ -46,7 +47,7 @@ type TencentChatRequest struct {
 	// 同步请求超时：60s，如果内容较长建议使用流式
 	Stream int `json:"stream"`
 	// Messages 会话内容, 长度最多为40, 按对话时间从旧到新在数组中排列
-	// 输入 content 总数最大支持 3000 token。
+	// 输入 content 总数最大支持 8092 token。
 	Messages []TencentMessage `json:"messages"`
 }
 

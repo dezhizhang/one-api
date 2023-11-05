@@ -12,22 +12,26 @@ var RedisEnabled = true
 
 // InitRedisClient This function is called after init()
 func InitRedisClient() (err error) {
-	if os.Getenv("REDIS_CONN_STRING") == "" {
-		RedisEnabled = false
-		SysLog("REDIS_CONN_STRING not set, Redis is not enabled")
-		return nil
-	}
-	if os.Getenv("SYNC_FREQUENCY") == "" {
-		RedisEnabled = false
-		SysLog("SYNC_FREQUENCY not set, Redis is disabled")
-		return nil
-	}
-	SysLog("Redis is enabled")
-	opt, err := redis.ParseURL(os.Getenv("REDIS_CONN_STRING"))
-	if err != nil {
-		FatalLog("failed to parse Redis connection string: " + err.Error())
-	}
-	RDB = redis.NewClient(opt)
+	//if os.Getenv("REDIS_CONN_STRING") == "" {
+	//	RedisEnabled = false
+	//	SysLog("REDIS_CONN_STRING not set, Redis is not enabled")
+	//	return nil
+	//}
+	//if os.Getenv("SYNC_FREQUENCY") == "" {
+	//	RedisEnabled = false
+	//	SysLog("SYNC_FREQUENCY not set, Redis is disabled")
+	//	return nil
+	//}
+	//SysLog("Redis is enabled")
+	//opt, err := redis.ParseURL(os.Getenv("REDIS_CONN_STRING"))
+	//if err != nil {
+	//	FatalLog("failed to parse Redis connection string: " + err.Error())
+	//}
+	RDB = redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "",
+		DB:       0,
+	})
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()

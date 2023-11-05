@@ -1,3 +1,12 @@
+/*
+ * :file description:
+ * :name: /one-api/common/constants.go
+ * :author: 张德志
+ * :copyright: (c) 2023, Tungee
+ * :date created: 2023-11-02 06:29:26
+ * :last editor: 张德志
+ * :date last edited: 2023-11-05 13:12:16
+ */
 package common
 
 import (
@@ -12,7 +21,7 @@ import (
 var StartTime = time.Now().Unix() // unit: second
 var Version = "v0.0.0"            // this hard coding will be replaced automatically when building, no need to manually change
 var SystemName = "One API"
-var ServerAddress = "http://localhost:3000"
+var ServerAddress = "http://localhost:8092"
 var Footer = ""
 var Logo = ""
 var TopUpLink = ""
