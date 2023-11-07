@@ -64,7 +64,7 @@ func chooseDB() (*gorm.DB, error) {
 	////})
 
 	dsn := fmt.Sprintf(`%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local`,
-		"root", "123456", "127.0.0.1", 3306, "one-api",
+		"root", "tungee1024Zhang", "127.0.0.1", 3306, "one-api",
 	)
 	common.SysLog("using MySQL as database")
 	return gorm.Open(mysql.Open(dsn), &gorm.Config{

@@ -98,7 +98,8 @@ func main() {
 	if port == "" {
 		port = strconv.Itoa(*common.Port)
 	}
-	err = server.Run(":" + port)
+	fmt.Println("ort", port)
+	err = server.Run(":8092")
 	if err != nil {
 		common.FatalLog("failed to start HTTP server: " + err.Error())
 	}
